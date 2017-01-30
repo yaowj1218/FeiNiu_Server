@@ -32,7 +32,12 @@ var Driver = sequelize.define('Driver',{
                 type:Sequelize.STRING,
                 unique:true,
                 field:'电话号码'
-            }
+            },
+            userphoto:{
+            type:Sequelize.STRING,
+            unique:true,
+            field:'用户头像'
+            },
 
         },{
         timestamps: true,

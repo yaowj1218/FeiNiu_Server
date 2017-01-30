@@ -118,43 +118,52 @@ var username=req.session.username
     res.send(JSON.stringify(({status:CREATE_SUCCESS})))
   }).catch(next)
 });
+
+
 //修改 User
 router.post('/update/user',function (req,res,next) {
-User.findOne({where:["username = ?",username]}).then(function (user) {
-  res.send(JSON.stringify(user))
-})
+// User.findOne({where:["username = ?",username]}).then(function (user) {
+//   res.send(JSON.stringify(user))
+// })
 });
 //修改 Driver
 router.post('/update/driver',function (req,res,next) {
 
 });
-
-router.post('/update/user',function (req,res,next) {
+//修改 Car
+router.post('/update/car',function (req,res,next) {
 
 });
 
+
+//查找 User
 router.post('/select/user',function (req,res,next) {
   username=req.body.username
   User.findOne({where:["username = ?",username]}).then(function (user) {
     res.send(JSON.stringify(user)).catch(next)
   })
 });
-
+//查找 Driver
 router.post('/select/driver',function (req,res,next) {
   username=req.body.username
   Driver.findOne({where:["username = ?",username]}).then(function (driver) {
     res.send(JSON.stringify(driver)).catch(next)
   })
 });
-
+//查找 Car
 router.post('/select/car',function (req,res,next) {
   userid=req.body.userid
   Car.findOne({where:["username = ?",userid]}).then(function (car) {
     res.send(JSON.stringify(car)).catch(next)
   })
 });
-
+//查找 History
 router.post('/select/history',function (req,res,next) {
-
+  userid=req.body.userid
+  History.findOne({where:["username = ?",userid]}).then(function (history) {
+    res.send(JSON.stringify(history)).catch(next)
+  })
 });
+
+
   module.exports = router;
